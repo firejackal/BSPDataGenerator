@@ -31,16 +31,21 @@ namespace BSPDataGenerator
             this.TitleLabel = new System.Windows.Forms.Label();
             this.WelcomeLabel = new System.Windows.Forms.Label();
             this.PropsPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.ColorLabel = new System.Windows.Forms.Label();
             this.SerialTextBox = new System.Windows.Forms.TextBox();
             this.SerialLabel = new System.Windows.Forms.Label();
             this.VariantLabel = new System.Windows.Forms.Label();
             this.VariantCombo = new System.Windows.Forms.ComboBox();
+            this.ColorCombo = new System.Windows.Forms.ComboBox();
             this.GenerateButton = new System.Windows.Forms.Button();
             this.lblCopyright = new System.Windows.Forms.Label();
             this.FlagsBox = new System.Windows.Forms.GroupBox();
+            this.X1000CheckBox = new System.Windows.Forms.CheckBox();
             this.RestoreButton = new System.Windows.Forms.Button();
             this.ButtonsPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.AFFFDataCheckBox = new System.Windows.Forms.CheckBox();
             this.PropsPanel.SuspendLayout();
+            this.FlagsBox.SuspendLayout();
             this.ButtonsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,17 +76,33 @@ namespace BSPDataGenerator
             this.PropsPanel.ColumnCount = 2;
             this.PropsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.PropsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PropsPanel.Controls.Add(this.ColorLabel, 0, 2);
             this.PropsPanel.Controls.Add(this.SerialTextBox, 1, 0);
             this.PropsPanel.Controls.Add(this.SerialLabel, 0, 0);
             this.PropsPanel.Controls.Add(this.VariantLabel, 0, 1);
             this.PropsPanel.Controls.Add(this.VariantCombo, 1, 1);
+            this.PropsPanel.Controls.Add(this.ColorCombo, 1, 2);
             this.PropsPanel.Location = new System.Drawing.Point(16, 63);
             this.PropsPanel.Name = "PropsPanel";
-            this.PropsPanel.RowCount = 2;
-            this.PropsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.PropsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.PropsPanel.Size = new System.Drawing.Size(339, 48);
+            this.PropsPanel.RowCount = 3;
+            this.PropsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.PropsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.PropsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.PropsPanel.Size = new System.Drawing.Size(339, 75);
             this.PropsPanel.TabIndex = 5;
+            // 
+            // ColorLabel
+            // 
+            this.ColorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ColorLabel.AutoSize = true;
+            this.ColorLabel.Location = new System.Drawing.Point(3, 50);
+            this.ColorLabel.Name = "ColorLabel";
+            this.ColorLabel.Size = new System.Drawing.Size(163, 25);
+            this.ColorLabel.TabIndex = 8;
+            this.ColorLabel.Text = "Color:";
+            this.ColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // SerialTextBox
             // 
@@ -101,7 +122,7 @@ namespace BSPDataGenerator
             this.SerialLabel.AutoSize = true;
             this.SerialLabel.Location = new System.Drawing.Point(3, 0);
             this.SerialLabel.Name = "SerialLabel";
-            this.SerialLabel.Size = new System.Drawing.Size(163, 24);
+            this.SerialLabel.Size = new System.Drawing.Size(163, 25);
             this.SerialLabel.TabIndex = 0;
             this.SerialLabel.Text = "Serial Number:";
             this.SerialLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -112,9 +133,9 @@ namespace BSPDataGenerator
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.VariantLabel.AutoSize = true;
-            this.VariantLabel.Location = new System.Drawing.Point(3, 24);
+            this.VariantLabel.Location = new System.Drawing.Point(3, 25);
             this.VariantLabel.Name = "VariantLabel";
-            this.VariantLabel.Size = new System.Drawing.Size(163, 24);
+            this.VariantLabel.Size = new System.Drawing.Size(163, 25);
             this.VariantLabel.TabIndex = 1;
             this.VariantLabel.Text = "Variant:";
             this.VariantLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -126,10 +147,22 @@ namespace BSPDataGenerator
             | System.Windows.Forms.AnchorStyles.Right)));
             this.VariantCombo.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.VariantCombo.FormattingEnabled = true;
-            this.VariantCombo.Location = new System.Drawing.Point(172, 27);
+            this.VariantCombo.Location = new System.Drawing.Point(172, 28);
             this.VariantCombo.Name = "VariantCombo";
             this.VariantCombo.Size = new System.Drawing.Size(164, 21);
             this.VariantCombo.TabIndex = 7;
+            // 
+            // ColorCombo
+            // 
+            this.ColorCombo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ColorCombo.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.ColorCombo.FormattingEnabled = true;
+            this.ColorCombo.Location = new System.Drawing.Point(172, 53);
+            this.ColorCombo.Name = "ColorCombo";
+            this.ColorCombo.Size = new System.Drawing.Size(164, 21);
+            this.ColorCombo.TabIndex = 7;
             // 
             // GenerateButton
             // 
@@ -148,7 +181,7 @@ namespace BSPDataGenerator
             // 
             this.lblCopyright.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCopyright.AutoSize = true;
-            this.lblCopyright.Location = new System.Drawing.Point(13, 179);
+            this.lblCopyright.Location = new System.Drawing.Point(13, 234);
             this.lblCopyright.Name = "lblCopyright";
             this.lblCopyright.Size = new System.Drawing.Size(93, 13);
             this.lblCopyright.TabIndex = 7;
@@ -156,15 +189,26 @@ namespace BSPDataGenerator
             // 
             // FlagsBox
             // 
-            this.FlagsBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.FlagsBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.FlagsBox.Location = new System.Drawing.Point(16, 117);
+            this.FlagsBox.Controls.Add(this.AFFFDataCheckBox);
+            this.FlagsBox.Controls.Add(this.X1000CheckBox);
+            this.FlagsBox.Location = new System.Drawing.Point(16, 156);
             this.FlagsBox.Name = "FlagsBox";
-            this.FlagsBox.Size = new System.Drawing.Size(339, 46);
+            this.FlagsBox.Size = new System.Drawing.Size(339, 65);
             this.FlagsBox.TabIndex = 8;
             this.FlagsBox.TabStop = false;
-            this.FlagsBox.Text = "Flags";
-            this.FlagsBox.Visible = false;
+            this.FlagsBox.Text = "WARNING! DRAGONS AHEAD";
+            // 
+            // X1000CheckBox
+            // 
+            this.X1000CheckBox.AutoSize = true;
+            this.X1000CheckBox.Location = new System.Drawing.Point(21, 19);
+            this.X1000CheckBox.Name = "X1000CheckBox";
+            this.X1000CheckBox.Size = new System.Drawing.Size(174, 17);
+            this.X1000CheckBox.TabIndex = 0;
+            this.X1000CheckBox.Text = "0x00000000 at position 0x1000";
+            this.X1000CheckBox.UseVisualStyleBackColor = true;
             // 
             // RestoreButton
             // 
@@ -187,18 +231,28 @@ namespace BSPDataGenerator
             this.ButtonsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.ButtonsPanel.Controls.Add(this.RestoreButton, 0, 0);
             this.ButtonsPanel.Controls.Add(this.GenerateButton, 1, 0);
-            this.ButtonsPanel.Location = new System.Drawing.Point(170, 172);
+            this.ButtonsPanel.Location = new System.Drawing.Point(170, 227);
             this.ButtonsPanel.Name = "ButtonsPanel";
             this.ButtonsPanel.RowCount = 1;
             this.ButtonsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.ButtonsPanel.Size = new System.Drawing.Size(190, 28);
             this.ButtonsPanel.TabIndex = 10;
             // 
+            // AFFFDataCheckBox
+            // 
+            this.AFFFDataCheckBox.AutoSize = true;
+            this.AFFFDataCheckBox.Location = new System.Drawing.Point(21, 42);
+            this.AFFFDataCheckBox.Name = "AFFFDataCheckBox";
+            this.AFFFDataCheckBox.Size = new System.Drawing.Size(148, 17);
+            this.AFFFDataCheckBox.TabIndex = 1;
+            this.AFFFDataCheckBox.Text = "Unknown AF and FF data";
+            this.AFFFDataCheckBox.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 212);
+            this.ClientSize = new System.Drawing.Size(372, 267);
             this.Controls.Add(this.ButtonsPanel);
             this.Controls.Add(this.FlagsBox);
             this.Controls.Add(this.lblCopyright);
@@ -215,6 +269,8 @@ namespace BSPDataGenerator
             this.Load += new System.EventHandler(this.Form1_Load);
             this.PropsPanel.ResumeLayout(false);
             this.PropsPanel.PerformLayout();
+            this.FlagsBox.ResumeLayout(false);
+            this.FlagsBox.PerformLayout();
             this.ButtonsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -235,6 +291,10 @@ namespace BSPDataGenerator
         private System.Windows.Forms.GroupBox FlagsBox;
         private System.Windows.Forms.Button RestoreButton;
         private System.Windows.Forms.TableLayoutPanel ButtonsPanel;
+        private System.Windows.Forms.Label ColorLabel;
+        private System.Windows.Forms.ComboBox ColorCombo;
+        private System.Windows.Forms.CheckBox X1000CheckBox;
+        private System.Windows.Forms.CheckBox AFFFDataCheckBox;
     }
 }
 
