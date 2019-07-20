@@ -22,6 +22,8 @@ namespace BSPDataGenerator
             this.VariantCombo.Items.Add("OPENUS");
             this.VariantCombo.Items.Add("SPRINT");
             this.VariantCombo.SelectedIndex = 1;
+
+            this.Unknown1CheckBox.Checked = true;
         }
 
         private void GenerateButton_Click(Object sender, EventArgs e)
@@ -44,7 +46,7 @@ namespace BSPDataGenerator
             }
 
             ByteManipulator file = new ByteManipulator(PartitionSize);
-
+            
             // insert data
             try
             {
@@ -71,7 +73,7 @@ namespace BSPDataGenerator
                 //0x130
                 file.InsertText(ByteManipulator.HexToDec("130"), this.VariantCombo.Text);
                 //0x170
-                file.InsertHex(ByteManipulator.HexToDec("170"), "06");
+                if(this.Unknown1CheckBox.Checked) file.InsertHex(ByteManipulator.HexToDec("170"), "06"); //this flag seems to be missing on other devices
                 //0x174
                 file.InsertHex(ByteManipulator.HexToDec("174"), "01000000BC01");
                 //0x17C
@@ -84,25 +86,57 @@ namespace BSPDataGenerator
                 file.InsertHex(ByteManipulator.HexToDec("2000"), "FF", (ByteManipulator.HexToDec("2122") - ByteManipulator.HexToDec("2000")) + 1);
                 //0x2123 to 0x2FFF
                 file.InsertHex(ByteManipulator.HexToDec("2123"), "AF", (ByteManipulator.HexToDec("2FFF") - ByteManipulator.HexToDec("2123")) + 1);
+                //0x77000-0x77020 seems to be different per device.
                 //0x77000
                 file.InsertHex(ByteManipulator.HexToDec("77000"), "313830303000B0F7");
                 //0x77010
                 file.InsertHex(ByteManipulator.HexToDec("77010"), "36340000205941EA");
             } catch(Exception ex) {
-                MessageBox.Show("Fatal error has occured generating the file:" + ex.ToString());
+                MessageBox.Show("Fatal error has occured generating the file:" + System.Environment.NewLine + ex.Message);
             }
 
             SaveFileDialog dialog = new SaveFileDialog();
-            dialog.Title = "Binary File";
-            dialog.Filter = "All Files (*.*)|*.*";
+            dialog.Title = "BSPData Partition";
+            dialog.Filter = "bspdata|bspdata|Partition Images (*.img)|*.img|All Files (*.*)|*.*";
             dialog.FileName = "bspdata";
             if (dialog.ShowDialog() == DialogResult.Cancel) return;
 
             if (file.SaveToFile(dialog.FileName))
             {
-                MessageBox.Show("File saved successfully.");
+                MessageBox.Show("File saved successfully." + System.Environment.NewLine + "Now flash with either `fastboot flash bspdata`, or the dd command.");
             } else {
                 MessageBox.Show("File unable to be saved.");
+            }
+        }
+
+        private void RestoreButton_Click(Object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Title = "BSPData Partition";
+            dialog.Filter = "bspdata|bspdata|Partition Images (*.img)|*.img|All Files (*.*)|*.*";
+            dialog.FileName = "bspdata";
+            if (dialog.ShowDialog() == DialogResult.Cancel) return;
+
+            this.RestoreSettings(dialog.FileName);
+        }
+
+        private void RestoreSettings(string fileName)
+        {
+            try
+            {
+                byte[] data = System.IO.File.ReadAllBytes(fileName);
+
+                //productid/serial number
+                this.SerialTextBox.Text = ByteManipulator.ReadString(data, ByteManipulator.HexToDec("1C"));
+                //variant
+                this.VariantCombo.Text = ByteManipulator.ReadString(data, ByteManipulator.HexToDec("130"));
+                //unknown flag #1
+                byte flag1 = ByteManipulator.ReadByte(data, ByteManipulator.HexToDec("170"));
+                this.Unknown1CheckBox.Checked = (flag1 == 6);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Unable to parse source file:" + System.Environment.NewLine + e.Message);
             }
         }
     }

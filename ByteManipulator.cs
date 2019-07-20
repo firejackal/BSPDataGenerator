@@ -131,5 +131,26 @@ namespace BSPDataGenerator
         {
             return System.Convert.ToInt32(System.Convert.ToUInt32("0x" + hex, 16));
         }
+
+        public static string ReadString(byte[] data, int start)
+        {
+            if (data == null || data.Length == 0 || start >= data.Length) return null;
+            //reads a string until we come across a null character.
+
+            string output = "";
+            for(int index = start; index < data.Length; index++)
+            {
+                if (data[index] == 0) break;
+                output += Convert.ToChar(data[index]);
+            }
+
+            return output;
+        }
+
+        public static byte ReadByte(byte[] data, int start)
+        {
+            if (data == null || data.Length == 0 || start >= data.Length) return 0;
+            return data[start];
+        }
     }
 }

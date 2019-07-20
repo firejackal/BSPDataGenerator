@@ -30,14 +30,20 @@ namespace BSPDataGenerator
         {
             this.TitleLabel = new System.Windows.Forms.Label();
             this.WelcomeLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.PropsPanel = new System.Windows.Forms.TableLayoutPanel();
             this.SerialTextBox = new System.Windows.Forms.TextBox();
             this.SerialLabel = new System.Windows.Forms.Label();
             this.VariantLabel = new System.Windows.Forms.Label();
             this.VariantCombo = new System.Windows.Forms.ComboBox();
             this.GenerateButton = new System.Windows.Forms.Button();
             this.lblCopyright = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.FlagsBox = new System.Windows.Forms.GroupBox();
+            this.Unknown1CheckBox = new System.Windows.Forms.CheckBox();
+            this.RestoreButton = new System.Windows.Forms.Button();
+            this.ButtonsPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.PropsPanel.SuspendLayout();
+            this.FlagsBox.SuspendLayout();
+            this.ButtonsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // TitleLabel
@@ -60,22 +66,24 @@ namespace BSPDataGenerator
             this.WelcomeLabel.TabIndex = 4;
             this.WelcomeLabel.Text = "Please enter the following information to generate your BSPData file.";
             // 
-            // tableLayoutPanel1
+            // PropsPanel
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.SerialTextBox, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.SerialLabel, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.VariantLabel, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.VariantCombo, 1, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 63);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(339, 48);
-            this.tableLayoutPanel1.TabIndex = 5;
+            this.PropsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PropsPanel.ColumnCount = 2;
+            this.PropsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PropsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PropsPanel.Controls.Add(this.SerialTextBox, 1, 0);
+            this.PropsPanel.Controls.Add(this.SerialLabel, 0, 0);
+            this.PropsPanel.Controls.Add(this.VariantLabel, 0, 1);
+            this.PropsPanel.Controls.Add(this.VariantCombo, 1, 1);
+            this.PropsPanel.Location = new System.Drawing.Point(16, 63);
+            this.PropsPanel.Name = "PropsPanel";
+            this.PropsPanel.RowCount = 2;
+            this.PropsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PropsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PropsPanel.Size = new System.Drawing.Size(339, 48);
+            this.PropsPanel.TabIndex = 5;
             // 
             // SerialTextBox
             // 
@@ -127,9 +135,12 @@ namespace BSPDataGenerator
             // 
             // GenerateButton
             // 
-            this.GenerateButton.Location = new System.Drawing.Point(265, 134);
+            this.GenerateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.GenerateButton.Location = new System.Drawing.Point(98, 3);
             this.GenerateButton.Name = "GenerateButton";
-            this.GenerateButton.Size = new System.Drawing.Size(87, 23);
+            this.GenerateButton.Size = new System.Drawing.Size(89, 22);
             this.GenerateButton.TabIndex = 6;
             this.GenerateButton.Text = "Generate";
             this.GenerateButton.UseVisualStyleBackColor = true;
@@ -137,21 +148,73 @@ namespace BSPDataGenerator
             // 
             // lblCopyright
             // 
+            this.lblCopyright.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblCopyright.AutoSize = true;
-            this.lblCopyright.Location = new System.Drawing.Point(13, 139);
+            this.lblCopyright.Location = new System.Drawing.Point(13, 179);
             this.lblCopyright.Name = "lblCopyright";
             this.lblCopyright.Size = new System.Drawing.Size(93, 13);
             this.lblCopyright.TabIndex = 7;
             this.lblCopyright.Text = "Made by firejackal";
             // 
+            // FlagsBox
+            // 
+            this.FlagsBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FlagsBox.Controls.Add(this.Unknown1CheckBox);
+            this.FlagsBox.Location = new System.Drawing.Point(16, 117);
+            this.FlagsBox.Name = "FlagsBox";
+            this.FlagsBox.Size = new System.Drawing.Size(339, 46);
+            this.FlagsBox.TabIndex = 8;
+            this.FlagsBox.TabStop = false;
+            this.FlagsBox.Text = "Flags";
+            // 
+            // Unknown1CheckBox
+            // 
+            this.Unknown1CheckBox.AutoSize = true;
+            this.Unknown1CheckBox.Location = new System.Drawing.Point(10, 19);
+            this.Unknown1CheckBox.Name = "Unknown1CheckBox";
+            this.Unknown1CheckBox.Size = new System.Drawing.Size(88, 17);
+            this.Unknown1CheckBox.TabIndex = 0;
+            this.Unknown1CheckBox.Text = "Unknown #1";
+            this.Unknown1CheckBox.UseVisualStyleBackColor = true;
+            // 
+            // RestoreButton
+            // 
+            this.RestoreButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.RestoreButton.Location = new System.Drawing.Point(3, 3);
+            this.RestoreButton.Name = "RestoreButton";
+            this.RestoreButton.Size = new System.Drawing.Size(89, 22);
+            this.RestoreButton.TabIndex = 9;
+            this.RestoreButton.Text = "Restore";
+            this.RestoreButton.UseVisualStyleBackColor = true;
+            this.RestoreButton.Click += new System.EventHandler(this.RestoreButton_Click);
+            // 
+            // ButtonsPanel
+            // 
+            this.ButtonsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonsPanel.ColumnCount = 2;
+            this.ButtonsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.ButtonsPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.ButtonsPanel.Controls.Add(this.RestoreButton, 0, 0);
+            this.ButtonsPanel.Controls.Add(this.GenerateButton, 1, 0);
+            this.ButtonsPanel.Location = new System.Drawing.Point(170, 172);
+            this.ButtonsPanel.Name = "ButtonsPanel";
+            this.ButtonsPanel.RowCount = 1;
+            this.ButtonsPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.ButtonsPanel.Size = new System.Drawing.Size(190, 28);
+            this.ButtonsPanel.TabIndex = 10;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(372, 172);
+            this.ClientSize = new System.Drawing.Size(372, 212);
+            this.Controls.Add(this.ButtonsPanel);
+            this.Controls.Add(this.FlagsBox);
             this.Controls.Add(this.lblCopyright);
-            this.Controls.Add(this.GenerateButton);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.PropsPanel);
             this.Controls.Add(this.WelcomeLabel);
             this.Controls.Add(this.TitleLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -162,8 +225,11 @@ namespace BSPDataGenerator
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BSPData Generator";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.PropsPanel.ResumeLayout(false);
+            this.PropsPanel.PerformLayout();
+            this.FlagsBox.ResumeLayout(false);
+            this.FlagsBox.PerformLayout();
+            this.ButtonsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,13 +239,17 @@ namespace BSPDataGenerator
 
         private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.Label WelcomeLabel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel PropsPanel;
         private System.Windows.Forms.TextBox SerialTextBox;
         private System.Windows.Forms.Label SerialLabel;
         private System.Windows.Forms.Label VariantLabel;
         private System.Windows.Forms.ComboBox VariantCombo;
         private System.Windows.Forms.Button GenerateButton;
         private System.Windows.Forms.Label lblCopyright;
+        private System.Windows.Forms.GroupBox FlagsBox;
+        private System.Windows.Forms.CheckBox Unknown1CheckBox;
+        private System.Windows.Forms.Button RestoreButton;
+        private System.Windows.Forms.TableLayoutPanel ButtonsPanel;
     }
 }
 
