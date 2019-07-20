@@ -33,6 +33,14 @@ namespace BSPDataGenerator
             return true;
         }
 
+        public bool InsertByte(int start, byte data)
+        {
+            if (this.mSize == 0 || start < 0 || start >= this.mSize) return false;
+            this.mData[start] = data;
+
+            return true;
+        }
+
         public bool InsertBytes(int start, int end, byte data)
         {
             if (this.mSize == 0) return false;

@@ -38,11 +38,9 @@ namespace BSPDataGenerator
             this.GenerateButton = new System.Windows.Forms.Button();
             this.lblCopyright = new System.Windows.Forms.Label();
             this.FlagsBox = new System.Windows.Forms.GroupBox();
-            this.Unknown1CheckBox = new System.Windows.Forms.CheckBox();
             this.RestoreButton = new System.Windows.Forms.Button();
             this.ButtonsPanel = new System.Windows.Forms.TableLayoutPanel();
             this.PropsPanel.SuspendLayout();
-            this.FlagsBox.SuspendLayout();
             this.ButtonsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -160,23 +158,13 @@ namespace BSPDataGenerator
             // 
             this.FlagsBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.FlagsBox.Controls.Add(this.Unknown1CheckBox);
             this.FlagsBox.Location = new System.Drawing.Point(16, 117);
             this.FlagsBox.Name = "FlagsBox";
             this.FlagsBox.Size = new System.Drawing.Size(339, 46);
             this.FlagsBox.TabIndex = 8;
             this.FlagsBox.TabStop = false;
             this.FlagsBox.Text = "Flags";
-            // 
-            // Unknown1CheckBox
-            // 
-            this.Unknown1CheckBox.AutoSize = true;
-            this.Unknown1CheckBox.Location = new System.Drawing.Point(10, 19);
-            this.Unknown1CheckBox.Name = "Unknown1CheckBox";
-            this.Unknown1CheckBox.Size = new System.Drawing.Size(88, 17);
-            this.Unknown1CheckBox.TabIndex = 0;
-            this.Unknown1CheckBox.Text = "Unknown #1";
-            this.Unknown1CheckBox.UseVisualStyleBackColor = true;
+            this.FlagsBox.Visible = false;
             // 
             // RestoreButton
             // 
@@ -227,8 +215,6 @@ namespace BSPDataGenerator
             this.Load += new System.EventHandler(this.Form1_Load);
             this.PropsPanel.ResumeLayout(false);
             this.PropsPanel.PerformLayout();
-            this.FlagsBox.ResumeLayout(false);
-            this.FlagsBox.PerformLayout();
             this.ButtonsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -247,7 +233,6 @@ namespace BSPDataGenerator
         private System.Windows.Forms.Button GenerateButton;
         private System.Windows.Forms.Label lblCopyright;
         private System.Windows.Forms.GroupBox FlagsBox;
-        private System.Windows.Forms.CheckBox Unknown1CheckBox;
         private System.Windows.Forms.Button RestoreButton;
         private System.Windows.Forms.TableLayoutPanel ButtonsPanel;
     }
